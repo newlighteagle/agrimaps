@@ -1,4 +1,4 @@
-type Theme = "light" | "dark";
+export type Theme = "light" | "dark";
 
 const STORAGE_KEY = "agrimaps-theme";
 
@@ -13,6 +13,7 @@ function getStartTheme(): Theme {
 
 function applyTheme(theme: Theme): void {
   document.documentElement.dataset.theme = theme;
+  window.dispatchEvent(new Event("themechange"));
 }
 
 export function setupThemeToggle(): void {
@@ -28,5 +29,15 @@ export function setupThemeToggle(): void {
     theme = theme === "dark" ? "light" : "dark";
     applyTheme(theme);
     localStorage.setItem(STORAGE_KEY, theme);
+  });
+}
+
+export function getTheme(): Theme {
+  return document.documentElement.dataset.theme === "dark" ? "dark" : "light";
+}
+
+export function onThemeChange(callback: (theme: Theme) => void): void {
+  window.addEventListener("themechange", () => {
+    callback(getTheme());
   });
 }

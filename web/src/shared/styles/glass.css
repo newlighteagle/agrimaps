@@ -10,6 +10,8 @@
   --shadow: 0 30px 60px -30px rgb(70 60 180 / 0.5);
   --point: #d9480f;
   --radius: 22px;
+  --map-filter: sepia(0.3) hue-rotate(205deg) saturate(1.2);
+  --map-opacity: 0.75;
   --bg:
     radial-gradient(55% 45% at 12% 8%, #f7e8ff, transparent 60%),
     radial-gradient(50% 40% at 88% 14%, #d3e2ff, transparent 60%),
@@ -33,6 +35,8 @@
   --shadow: 0 24px 60px -24px rgb(0 0 0 / 0.85);
   --point: #ffc24d;
   --radius: 4px;
+  --map-filter: sepia(1) hue-rotate(160deg) saturate(2) brightness(0.8);
+  --map-opacity: 0.85;
   --bg:
     linear-gradient(rgb(56 225 255 / 0.07) 1px, transparent 1px) 0 0 / 44px 44px,
     linear-gradient(90deg, rgb(56 225 255 / 0.07) 1px, transparent 1px) 0 0 /
@@ -162,12 +166,61 @@ p {
   text-decoration: none;
 }
 
-/* ---------- Kotak peta (sementara, sampai 03.01) ---------- */
-.map-placeholder {
-  display: grid;
-  place-items: center;
-  height: 60vh;
-  border-style: dashed;
+/* ---------- Halaman peta layar penuh ---------- */
+.map {
+  position: fixed;
+  inset: 0;
+
+  /* Warna kontrol OpenLayers mengikuti token tema */
+  --ol-background-color: var(--glass);
+  --ol-foreground-color: var(--ink);
+  --ol-subtle-foreground-color: var(--accent);
+  --ol-partial-background-color: var(--glass);
+  --ol-subtle-background-color: var(--chip);
+}
+
+/* Warnai basemap supaya menyatu dengan tema */
+.basemap {
+  filter: var(--map-filter);
+  opacity: var(--map-opacity);
+}
+
+/* Panel yang mengambang di atas peta */
+.overlay-top,
+.overlay-title,
+.overlay-bottom {
+  position: fixed;
+  z-index: 1;
+  margin: 0;
+}
+
+.overlay-top {
+  top: 16px;
+  right: 16px;
+  left: 16px;
+}
+
+.overlay-title {
+  top: 104px;
+  left: 16px;
+  width: min(440px, calc(100% - 32px));
+}
+
+.overlay-title h1 {
+  font-size: clamp(32px, 4vw, 48px);
+}
+
+.overlay-bottom {
+  bottom: 16px;
+  left: 16px;
+  padding: 10px 14px;
+}
+
+/* Pindahkan tombol zoom ke kanan, di bawah navigasi */
+.map .ol-zoom {
+  top: 104px;
+  right: 16px;
+  left: auto;
 }
 
 /* ---------- Sentuhan HUD khusus mode gelap ---------- */

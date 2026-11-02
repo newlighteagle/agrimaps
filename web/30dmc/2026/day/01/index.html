@@ -19,41 +19,40 @@
   </head>
 
   <body>
-    <main class="page">
-      <header class="panel topbar">
-        <a class="brand" href="/">AgriMaps</a>
-        <button
-          id="theme-toggle"
-          class="icon-button"
-          type="button"
-          aria-label="Toggle dark mode"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
-            <circle
-              cx="12"
-              cy="12"
-              r="8"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            />
-            <path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor" />
-          </svg>
-        </button>
-      </header>
+    <div id="map" class="map"></div>
 
-      <section>
-        <span class="chip">Day 01 · Points</span>
-        <h1>Where coffee grows</h1>
-        <p>Occurrences of <em>Coffea arabica</em> around the world.</p>
-      </section>
+    <header class="panel topbar overlay-top">
+      <a class="brand" href="/">AgriMaps</a>
+      <button
+        id="theme-toggle"
+        class="icon-button"
+        type="button"
+        aria-label="Toggle dark mode"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+          <circle
+            cx="12"
+            cy="12"
+            r="8"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          />
+          <path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor" />
+        </svg>
+      </button>
+    </header>
 
-      <div id="map" class="panel map-placeholder">
-        <p id="map-status" class="label">Loading…</p>
-      </div>
+    <section class="panel overlay-title">
+      <span class="chip">Day 01 · Points</span>
+      <h1>Where coffee grows</h1>
+      <p>Occurrences of <em>Coffea arabica</em> around the world.</p>
+    </section>
 
-      <footer class="label">Data: GBIF.org (coming soon)</footer>
-    </main>
+    <footer class="panel label overlay-bottom">
+      <span id="coords">Lat — · Lon —</span> · Data: GBIF.org (coming soon)
+    </footer>
+
     <script type="module" src="./main.ts"></script>
   </body>
 </html>
