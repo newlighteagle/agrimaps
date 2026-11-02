@@ -3,7 +3,7 @@
 Agriculture maps for the **#30DayMapChallenge 2026**, built from scratch
 while learning TypeScript and Python.
 
-🌐 Live: https://agrimaps.sofyansalim.my.id (coming soon)
+🌐 Live: https://agrimaps.sofyansalim.my.id
 
 ## Structure
 
