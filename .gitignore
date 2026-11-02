@@ -1,0 +1,28 @@
+# ---------- Sistem & editor ----------
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# ---------- web/ (Node + Vite) ----------
+node_modules/
+dist/
+*.local
+
+# Rahasia (token Mapbox, dll.). Jangan pernah di-commit.
+.env
+.env.*
+!.env.example
+
+# ---------- data/ (Python + uv) ----------
+.venv/
+__pycache__/
+*.py[cod]
+.ruff_cache/
+
+# Data mentah & olahan: besar, bisa dibuat ulang dengan script
+data/raw/
+data/processed/
+
+# ---------- Log ----------
+*.log
