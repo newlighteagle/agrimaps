@@ -1,0 +1,188 @@
+/* ---------- Token warna: mode terang (Glass) ---------- */
+:root {
+  --ink: #1a1c4b;
+  --muted: #4b5084;
+  --accent: #4b44e0;
+  --accent-ink: #ffffff;
+  --chip: rgb(75 68 224 / 0.1);
+  --glass: rgb(255 255 255 / 0.46);
+  --line: rgb(255 255 255 / 0.85);
+  --shadow: 0 30px 60px -30px rgb(70 60 180 / 0.5);
+  --point: #d9480f;
+  --radius: 22px;
+  --bg:
+    radial-gradient(55% 45% at 12% 8%, #f7e8ff, transparent 60%),
+    radial-gradient(50% 40% at 88% 14%, #d3e2ff, transparent 60%),
+    linear-gradient(160deg, #eef0ff, #e5e2fb 50%, #efe7fb);
+
+  --font: "Plus Jakarta Sans", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+
+  color-scheme: light;
+}
+
+/* ---------- Token warna: mode gelap (HUD) ---------- */
+:root[data-theme="dark"] {
+  --ink: #d9f7ff;
+  --muted: #8ec3d6;
+  --accent: #38e1ff;
+  --accent-ink: #02141c;
+  --chip: rgb(56 225 255 / 0.1);
+  --glass: rgb(5 24 38 / 0.62);
+  --line: rgb(56 225 255 / 0.3);
+  --shadow: 0 24px 60px -24px rgb(0 0 0 / 0.85);
+  --point: #ffc24d;
+  --radius: 4px;
+  --bg:
+    linear-gradient(rgb(56 225 255 / 0.07) 1px, transparent 1px) 0 0 / 44px 44px,
+    linear-gradient(90deg, rgb(56 225 255 / 0.07) 1px, transparent 1px) 0 0 /
+      44px 44px,
+    radial-gradient(
+      55% 45% at 50% 30%,
+      rgb(18 110 150 / 0.38),
+      transparent 70%
+    ),
+    linear-gradient(180deg, #020a12, #03121d 55%, #020a12);
+
+  color-scheme: dark;
+}
+
+/* ---------- Dasar ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+}
+
+a {
+  color: var(--accent);
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 16px 56px;
+}
+
+/* ---------- Panel kaca ---------- */
+.panel {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--glass);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(22px) saturate(150%);
+}
+
+/* ---------- Navigasi atas ---------- */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 14px 12px 20px;
+}
+
+.brand {
+  color: var(--ink);
+  font-size: 20px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.icon-button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--glass);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+/* ---------- Teks ---------- */
+h1 {
+  margin: 0;
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+p {
+  max-width: 560px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.label {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.chip {
+  display: inline-block;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: var(--chip);
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---------- Tombol ---------- */
+.button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* ---------- Kotak peta (sementara, sampai 03.01) ---------- */
+.map-placeholder {
+  display: grid;
+  place-items: center;
+  height: 60vh;
+  border-style: dashed;
+}
+
+/* ---------- Sentuhan HUD khusus mode gelap ---------- */
+:root[data-theme="dark"] h1 {
+  text-shadow: 0 0 18px rgb(56 225 255 / 0.55);
+}
+
+:root[data-theme="dark"] .chip,
+:root[data-theme="dark"] .button,
+:root[data-theme="dark"] .icon-button {
+  border-radius: 3px;
+}
+
+:root[data-theme="dark"] .button {
+  font-family: var(--mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  box-shadow: 0 0 26px rgb(56 225 255 / 0.45);

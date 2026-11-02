@@ -6,10 +6,41 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AgriMaps</title>
+  <meta name="description" content="Agriculture maps for the #30DayMapChallenge 2026." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" />
+  <link rel="stylesheet" href="/src/shared/styles/glass.css" />
 </head>
 
 <body>
-  <div id="app"></div>
+  <main class="page">
+    <header class="panel topbar">
+      <a class="brand" href="/">AgriMaps</a>
+      <button id="theme-toggle" class="icon-button" type="button" aria-label="Toggle dark mode">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2" />
+          <path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor" />
+        </svg>
+      </button>
+    </header>
+
+    <section class="panel">
+      <span class="chip">#30DayMapChallenge 2026</span>
+      <h1>Agriculture,<br />mapped daily.</h1>
+      <p>
+        Thirty maps about what we grow, where it grows and what it costs the
+        land. Open data, one map a day, all of November.
+      </p>
+      <a class="button" href="/30dmc/2026/day/01/">Open Day 01 · Points →</a>
+    </section>
+
+    <footer class="label">
+      © <span id="year"></span> Sofyan Agus Salim · Built by hand with Vite +
+      TypeScript
+    </footer>
+  </main>
   <script type="module" src="/src/main.ts"></script>
 </body>
 
